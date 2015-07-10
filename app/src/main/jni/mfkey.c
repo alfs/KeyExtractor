@@ -9,8 +9,10 @@
 // Test-file: test2.c
 #include "crapto1.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /* Adaptation of mfkey32 for JNI interfacing */
+
 
 uint64_t mfkey(uint32_t uid, uint32_t nt, uint32_t nt1, uint32_t nr0_enc, uint32_t ar0_enc, uint32_t nr1_enc, uint32_t ar1_enc) {
   struct Crypto1State *s,*t;
@@ -68,3 +70,16 @@ void main() {
     else printf("Bug in calculation, key does not match\n");
 
 }
+
+/*
+ *  * Class:     com_example_mfc_keyextractor_MainActivity
+ *   * Method:    mfkey
+ *    * Signature: (IIIIIII)J
+ *     */
+JNIEXPORT jlong JNICALL Java_com_example_mfc_keyextractor_MainActivity_mfkey
+  (JNIEnv * env, jobject jobj, jint a, jint b, jint c, jint d, jint e, jint f, jint g) {
+
+  return mfkey(a,b,c,d,e,f,g);
+}
+
+

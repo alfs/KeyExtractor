@@ -34,4 +34,5 @@
         android:layout_alignRight="@+id/infoText"
         android:layout_alignEnd="@+id/infoText"
         android:layout_alignParentBottom="true" />
+
 </RelativeLayout>
