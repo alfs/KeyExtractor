@@ -56,13 +56,13 @@ uint64_t mfkey(uint32_t uid, uint32_t nt, uint32_t nt1, uint32_t nr0_enc, uint32
 
 void main() {
 
-    uint64_t key = mfkey(0x12345678L,
-                         0x1AD8DF2BL,
-                         0x30D6CB07L,
-                         0x1D316024L,
-                         0x620EF048L,
-                         0xC52077E2L,
-                         0x837AC61AL);
+    uint64_t key = mfkey(0x12345678L, /* uid */
+                         0x1AD8DF2BL, /* nt0 */
+                         0x30D6CB07L, /* nt1 */
+                         0x1D316024L, /* nr0 */
+                         0x620EF048L, /* ar0 */
+                         0xC52077E2L,  /* nr1 */
+                         0x837AC61AL); /* ar1 */
 
     printf("key should be a0a1a2a3a4a5\n");
     printf("key is %llx\n", key);
@@ -73,9 +73,9 @@ void main() {
 
 /*
  *  * Class:     com_example_mfc_keyextractor_MainActivity
- *   * Method:    mfkey
- *    * Signature: (IIIIIII)J
- *     */
+ *  * Method:    mfkey
+ *  * Signature: (IIIIIII)J
+ */
 JNIEXPORT jlong JNICALL Java_com_example_mfc_keyextractor_MainActivity_mfkey
   (JNIEnv * env, jobject jobj, jint a, jint b, jint c, jint d, jint e, jint f, jint g) {
 
